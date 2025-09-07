@@ -156,3 +156,10 @@ typings/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Node.js binaries and archives
+node-v20.10.0-darwin-x64/
+node.tar.gz
+
+# Production environment files (use env.production instead)
+.env.production
