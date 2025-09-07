@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "BTS Group Photo Print",
+    "description": "High-quality print of BTS group photo from Proof era",
+    "price": 15.99,
+    "image": "/images/placeholder.svg",
+    "quantity": 10,
+    "createdAt": "2025-09-07T00:00:00.000Z",
+    "updatedAt": "2025-09-07T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "name": "NewJeans Concept Print",
+    "description": "Artistic print featuring NewJeans members in Get Up concept",
+    "price": 18.99,
+    "image": "/images/placeholder.svg",
+    "quantity": 8,
+    "createdAt": "2025-09-07T00:00:00.000Z",
+    "updatedAt": "2025-09-07T00:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "name": "LE SSERAFIM Performance Print",
+    "description": "Dynamic performance shot of LE SSERAFIM from UNFORGIVEN era",
+    "price": 16.99,
+    "image": "/images/placeholder.svg",
+    "quantity": 12,
+    "createdAt": "2025-09-07T00:00:00.000Z",
+    "updatedAt": "2025-09-07T00:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "name": "aespa MY WORLD Print",
+    "description": "Stunning print from aespa's MY WORLD concept photos",
+    "price": 19.99,
+    "image": "/images/placeholder.svg",
+    "quantity": 6,
+    "createdAt": "2025-09-07T00:00:00.000Z",
+    "updatedAt": "2025-09-07T00:00:00.000Z"
+  },
+  {
+    "id": 5,
+    "name": "TWICE Group Shot Print",
+    "description": "Beautiful group photo of TWICE from READY TO BE album",
+    "price": 14.99,
+    "image": "/images/placeholder.svg",
+    "quantity": 15,
+    "createdAt": "2025-09-07T00:00:00.000Z",
+    "updatedAt": "2025-09-07T00:00:00.000Z"
+  }
+]

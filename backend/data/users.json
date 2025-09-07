@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "email": "test@example.com",
+    "name": "Test User",
+    "googleId": null,
+    "password": "$2b$10$hxnysZ3iS6zghrgZWPK4beZ/7KuPK2.BlwtNNg9C7J3ONGfVAcA9m",
+    "role": "user",
+    "createdAt": "2025-09-06T20:22:15.600Z",
+    "updatedAt": "2025-09-06T20:22:15.600Z"
+  },
+  {
+    "id": 2,
+    "email": "yance0024@gmail.com",
+    "name": "Marley Yance",
+    "googleId": "102059982080588915475",
+    "password": "$2b$10$633eu2IHM0CLYDh/pFM1R.h8S/pSt0WLPlO6xGzhU4CSIxKz6rOVW",
+    "role": "admin",
+    "createdAt": "2025-09-06T20:33:45.372Z",
+    "updatedAt": "2025-09-07T00:00:53.875Z"
+  },
+  {
+    "id": 3,
+    "email": "admin@lumi.com",
+    "name": "Admin User",
+    "googleId": null,
+    "password": "$2b$10$Ma8/dk.kz5wwyCioZ/CqyOUJnaPNgusSG3XKYhN503qugr/ZnOdi.",
+    "role": "admin",
+    "createdAt": "2025-09-06T21:25:04.021Z",
+    "updatedAt": "2025-09-06T21:25:04.021Z"
+  },
+  {
+    "id": 4,
+    "email": "yance0022@gmail.com",
+    "name": "Rich Yance",
+    "googleId": "104026224347986397569",
+    "password": null,
+    "role": "user",
+    "createdAt": "2025-09-07T16:49:45.977Z",
+    "updatedAt": "2025-09-07T16:49:45.977Z"
+  }
+]

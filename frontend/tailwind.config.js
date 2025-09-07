@@ -1,0 +1,71 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#fdf7f7',
+          100: '#fce7e7',
+          200: '#f8d1d1',
+          300: '#f2b0b0',
+          400: '#e88484',
+          500: '#d86090',
+          600: '#c44a7a',
+          700: '#a63d66',
+          800: '#8a3455',
+          900: '#722e48',
+        },
+        secondary: {
+          50: '#faf9f8',
+          100: '#f3f1ef',
+          200: '#e6e2dd',
+          300: '#d4cdc5',
+          400: '#c0b0b0',
+          500: '#8a7f7f',
+          600: '#7a6f6f',
+          700: '#665c5c',
+          800: '#544b4b',
+          900: '#463e3e',
+        },
+        accent: {
+          50: '#fff7ed',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#f59533',
+          600: '#ea580c',
+          700: '#c2410c',
+          800: '#9a3412',
+          900: '#7c2d12',
+        },
+        tape: {
+          50: '#fefce8',
+          100: '#fef9c3',
+          200: '#fef08a',
+          300: '#fde047',
+          400: '#facc15',
+          500: '#e0d8b0',
+          600: '#ca8a04',
+          700: '#a16207',
+          800: '#854d0e',
+          900: '#713f12',
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        cursive: ['Dancing Script', 'cursive'],
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+    },
+  },
+  plugins: [],
+};

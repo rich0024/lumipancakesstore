@@ -1,0 +1,139 @@
+[
+  {
+    "id": 1,
+    "userId": 2,
+    "items": [
+      {
+        "id": 1,
+        "name": "BTS - Jungkook Photocard",
+        "description": "Official BTS Jungkook photocard from Proof album",
+        "price": 12.99,
+        "image": "/images/placeholder.svg",
+        "group": "BTS",
+        "member": "Jungkook",
+        "album": "Proof",
+        "set": "Proof Standard",
+        "age": "2022",
+        "rarity": "Album",
+        "category": "bts",
+        "quantity": 5,
+        "createdAt": "2025-09-05T21:46:48.901Z",
+        "updatedAt": "2025-09-05T21:46:48.902Z"
+      },
+      {
+        "id": 1,
+        "name": "BTS - Jungkook Photocard",
+        "description": "Official BTS Jungkook photocard from Proof album",
+        "price": 12.99,
+        "image": "/images/placeholder.svg",
+        "group": "BTS",
+        "member": "Jungkook",
+        "album": "Proof",
+        "set": "Proof Standard",
+        "age": "2022",
+        "rarity": "Album",
+        "category": "bts",
+        "quantity": 5,
+        "createdAt": "2025-09-05T21:46:48.901Z",
+        "updatedAt": "2025-09-05T21:46:48.902Z"
+      },
+      {
+        "id": 6,
+        "name": "ITZY - Yeji Polaroid",
+        "description": "Limited Yeji polaroid from KILL MY DOUBT",
+        "price": 19.99,
+        "image": "/images/placeholder.svg",
+        "group": "ITZY",
+        "member": "Yeji",
+        "album": "KILL MY DOUBT",
+        "set": "KILL MY DOUBT Limited",
+        "age": "2023",
+        "rarity": "Preorder Benefit",
+        "category": "itzy",
+        "quantity": 4,
+        "createdAt": "2025-09-05T21:46:48.902Z",
+        "updatedAt": "2025-09-05T21:46:48.902Z"
+      },
+      {
+        "id": 9,
+        "name": "Marley",
+        "description": "",
+        "price": 100,
+        "image": "/images/uploads/image-1757186280581-87791692.jpg",
+        "group": "Ize One",
+        "member": "Marley",
+        "album": "Rose",
+        "set": "",
+        "age": "",
+        "rarity": "Lucky Draw",
+        "category": "ize one",
+        "quantity": 3,
+        "createdAt": "2025-09-06T19:07:57.429Z",
+        "updatedAt": "2025-09-06T19:18:00.625Z"
+      }
+    ],
+    "total": 145.97,
+    "status": "pending",
+    "createdAt": "2025-09-07T14:41:09.844Z",
+    "updatedAt": "2025-09-07T14:41:09.844Z"
+  },
+  {
+    "id": 2,
+    "userId": 2,
+    "items": [
+      {
+        "id": 4,
+        "name": "aespa - Winter Polaroid",
+        "description": "Exclusive Winter polaroid from MY WORLD",
+        "price": 22.99,
+        "image": "/images/placeholder.svg",
+        "group": "aespa",
+        "member": "Winter",
+        "album": "MY WORLD",
+        "set": "MY WORLD Special",
+        "age": "2023",
+        "rarity": "Lucky Draw",
+        "category": "aespa",
+        "quantity": 2,
+        "createdAt": "2025-09-05T21:46:48.902Z",
+        "updatedAt": "2025-09-05T21:46:48.902Z"
+      }
+    ],
+    "total": 22.99,
+    "status": "pending",
+    "createdAt": "2025-09-07T14:41:40.123Z",
+    "updatedAt": "2025-09-07T14:41:40.123Z"
+  },
+  {
+    "id": 3,
+    "userId": 4,
+    "items": [
+      {
+        "id": 4,
+        "name": "aespa MY WORLD Print",
+        "price": 19.99,
+        "quantity": 1
+      }
+    ],
+    "total": 19.99,
+    "status": "pending",
+    "createdAt": "2025-09-07T16:50:05.479Z",
+    "updatedAt": "2025-09-07T16:50:05.479Z"
+  },
+  {
+    "id": 4,
+    "userId": 4,
+    "items": [
+      {
+        "id": 4,
+        "name": "aespa MY WORLD Print",
+        "price": 19.99,
+        "quantity": 2
+      }
+    ],
+    "total": 39.98,
+    "status": "pending",
+    "createdAt": "2025-09-07T16:50:19.450Z",
+    "updatedAt": "2025-09-07T16:50:19.450Z"
+  }
+]
