@@ -74,11 +74,16 @@ export default function Collection() {
           items: Object.entries(
             cart.reduce((acc, item) => {
               if (!acc[item.id]) {
-                acc[item.id] = { ...item, quantity: 0 };
+                acc[item.id] = { 
+                  id: item.id,
+                  name: item.name,
+                  price: item.price,
+                  quantity: 0 
+                };
               }
               acc[item.id].quantity += 1;
               return acc;
-            }, {} as Record<number, (Photocard | Print) & { quantity: number }>)
+            }, {} as Record<number, { id: number; name: string; price: number; quantity: number }>)
           ).map(([id, item]) => ({
             id: item.id,
             name: item.name,
