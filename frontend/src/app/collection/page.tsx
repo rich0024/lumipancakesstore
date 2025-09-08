@@ -78,7 +78,7 @@ export default function Collection() {
               }
               acc[item.id].quantity += 1;
               return acc;
-            }, {} as Record<number, Photocard & { quantity: number }>)
+            }, {} as Record<number, (Photocard | Print) & { quantity: number }>)
           ).map(([id, item]) => ({
             id: item.id,
             name: item.name,
