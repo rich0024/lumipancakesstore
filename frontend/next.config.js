@@ -12,8 +12,13 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'res.cloudinary.com'],
     remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/dx4biopst/**',
+      },
       {
         protocol: 'https',
         hostname: '**',

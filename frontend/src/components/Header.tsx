@@ -19,7 +19,7 @@ export default function Header() {
         {/* Banner Background */}
         <div className="relative h-32 md:h-48 lg:h-56 bg-white">
           <Image
-            src="/images/Lumi Pancakes - Etsy Shop Banner.png"
+            src="https://res.cloudinary.com/dx4biopst/image/upload/v1/lumipancakesstore/banner"
             alt="Lumi Pancakes Banner"
             fill
             className="object-contain"

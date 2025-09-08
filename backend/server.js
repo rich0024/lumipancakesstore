@@ -67,6 +67,8 @@ const corsOptions = {
     
     const allowedOrigins = [
       process.env.FRONTEND_URL || 'http://localhost:3000',
+      'https://lumipancakes.com',
+      'https://www.lumipancakes.com',
       'http://localhost:3000',
       'https://localhost:3000'
     ];
