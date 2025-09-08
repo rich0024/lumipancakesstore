@@ -46,7 +46,7 @@ export default function AdminPrintForm({ print, onSubmit, onCancel }: AdminPrint
       formDataUpload.append('image', imageFile);
 
       try {
-        const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/upload', {
+        const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/upload`, {
           method: 'POST',
           body: formDataUpload,
         });
@@ -99,14 +99,14 @@ export default function AdminPrintForm({ print, onSubmit, onCancel }: AdminPrint
       <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="p-6">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">
-            {print ? 'Edit Print' : 'Add New Print'}
+            {print ? 'Edit Print' : 'Create New Print'}
           </h2>
-          
+
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Name */}
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                Print Name *
+                Name *
               </label>
               <input
                 type="text"
@@ -116,7 +116,7 @@ export default function AdminPrintForm({ print, onSubmit, onCancel }: AdminPrint
                 onChange={handleChange}
                 required
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
-                placeholder="e.g., BTS Group Photo Print"
+                placeholder="Enter print name..."
               />
             </div>
 
@@ -190,30 +190,14 @@ export default function AdminPrintForm({ print, onSubmit, onCancel }: AdminPrint
                   <img
                     src={imagePreview}
                     alt="Preview"
-                    className="w-32 h-32 object-cover rounded-lg"
+                    className="w-32 h-32 object-cover rounded-md"
                   />
                 </div>
               )}
             </div>
 
-            {/* Image URL (fallback) */}
-            <div>
-              <label htmlFor="imageUrl" className="block text-sm font-medium text-gray-700 mb-2">
-                Image URL (if not uploading file)
-              </label>
-              <input
-                type="url"
-                id="imageUrl"
-                name="image"
-                value={formData.image}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
-                placeholder="https://example.com/image.jpg"
-              />
-            </div>
-
             {/* Buttons */}
-            <div className="flex justify-end space-x-3 pt-6">
+            <div className="flex justify-end space-x-3 pt-4">
               <button
                 type="button"
                 onClick={onCancel}
