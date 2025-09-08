@@ -36,7 +36,7 @@ export default function Collection() {
       if (filterRarity) params.append('rarity', filterRarity);
       if (filterAge) params.append('age', filterAge);
       
-      const response = await fetch(`http://localhost:3001/api/menu?${params.toString()}`);
+      const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/menu?${params.toString()}`);
       if (!response.ok) {
         throw new Error('Failed to fetch menu');
       }
@@ -64,7 +64,7 @@ export default function Collection() {
     try {
       setIsPlacingOrder(true);
       const token = localStorage.getItem('authToken');
-      const response = await fetch('http://localhost:3001/api/orders', {
+      const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/orders`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

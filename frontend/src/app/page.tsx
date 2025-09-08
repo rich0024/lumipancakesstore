@@ -19,7 +19,7 @@ export default function Home() {
   const fetchRecentCards = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch('http://localhost:3001/api/menu');
+      const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/menu`);
       if (!response.ok) {
         throw new Error('Failed to fetch menu');
       }

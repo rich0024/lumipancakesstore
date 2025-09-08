@@ -25,7 +25,7 @@ export default function UserProfile() {
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await fetch('http://localhost:3001/api/orders/my-orders', {
+      const response = await fetch('${process.env.API_URL || 'http://localhost:3001'}/api/orders/my-orders', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',

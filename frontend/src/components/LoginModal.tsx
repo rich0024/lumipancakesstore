@@ -19,7 +19,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
   const handleGoogleLogin = () => {
     setIsLoading(true);
     // Redirect to Google OAuth
-    window.location.href = 'http://localhost:3001/auth/google';
+    window.location.href = '${process.env.API_URL || 'http://localhost:3001'}/auth/google';
   };
 
   // Check if Google OAuth is configured by testing the endpoint
@@ -27,7 +27,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
   
   React.useEffect(() => {
     // Check if Google OAuth is available
-    fetch('http://localhost:3001/auth/google', {
+    fetch('${process.env.API_URL || 'http://localhost:3001'}/auth/google', {
       method: 'HEAD', // Use HEAD request to avoid following redirects
       mode: 'cors',
       credentials: 'include'
