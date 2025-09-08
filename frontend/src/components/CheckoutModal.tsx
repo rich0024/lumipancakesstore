@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { Photocard } from '@/types/menu';
+import { Photocard, Print } from '@/types/menu';
 
 interface CheckoutModalProps {
-  cart: Photocard[];
+  cart: (Photocard | Print)[];
   totalPrice: number;
   onClose: () => void;
   onOrderPlaced: () => void;
