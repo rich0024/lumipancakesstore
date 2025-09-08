@@ -73,7 +73,7 @@ export default function SignupModal({ isOpen, onClose, onSwitchToLogin }: Signup
 
       if (response.ok) {
         // Auto-login after successful registration
-        const loginResponse = await fetch('${process.env.API_URL || '${process.env.API_URL || 'http://localhost:3001'}'}/auth/login', {
+        const loginResponse = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/auth/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
