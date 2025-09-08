@@ -20,7 +20,7 @@ export default function AdminPhotocardForm({ card, onSubmit, onCancel }: AdminPh
     album: '',
     set: '',
     age: '',
-    rarity: 'Album',
+    rarity: 'Album' as 'Album' | 'Preorder Benefit' | 'Lucky Draw',
     category: '',
     quantity: '1'
   });
@@ -89,7 +89,7 @@ export default function AdminPhotocardForm({ card, onSubmit, onCancel }: AdminPh
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: name === 'rarity' ? value as 'Album' | 'Preorder Benefit' | 'Lucky Draw' : value
     }));
   };
 
