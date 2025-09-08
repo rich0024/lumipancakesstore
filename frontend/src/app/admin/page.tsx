@@ -29,7 +29,7 @@ export default function Admin() {
   const fetchPhotocards = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await fetch('${process.env.API_URL || '${process.env.API_URL || 'http://localhost:3001'}'}/api/admin/photocards', {
+      const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/admin/photocards', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export default function Admin() {
   const fetchPrints = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await fetch('${process.env.API_URL || '${process.env.API_URL || 'http://localhost:3001'}'}/api/admin/prints', {
+      const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/admin/prints', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ export default function Admin() {
   const handleCreateCard = async (cardData: Partial<Photocard>) => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await fetch('${process.env.API_URL || '${process.env.API_URL || 'http://localhost:3001'}'}/api/admin/photocards', {
+      const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/admin/photocards', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -160,7 +160,7 @@ export default function Admin() {
   const handleCreatePrint = async (printData: Partial<Print>) => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await fetch('${process.env.API_URL || '${process.env.API_URL || 'http://localhost:3001'}'}/api/admin/prints', {
+      const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/admin/prints', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

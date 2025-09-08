@@ -44,7 +44,7 @@ export default function AdminPrintForm({ print, onSubmit, onCancel }: AdminPrint
       formDataUpload.append('image', imageFile);
 
       try {
-        const response = await fetch('${process.env.API_URL || '${process.env.API_URL || 'http://localhost:3001'}'}/api/upload', {
+        const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/upload', {
           method: 'POST',
           body: formDataUpload,
         });

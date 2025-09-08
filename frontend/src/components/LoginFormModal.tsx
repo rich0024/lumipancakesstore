@@ -39,7 +39,7 @@ export default function LoginFormModal({ isOpen, onClose, onSwitchToSignup }: Lo
 
     try {
       setIsLoading(true);
-      const response = await fetch('${process.env.API_URL || '${process.env.API_URL || 'http://localhost:3001'}'}/auth/login', {
+      const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
