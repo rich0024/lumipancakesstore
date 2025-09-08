@@ -207,7 +207,6 @@ export default function PrintsPage() {
           <PrintGrid 
             prints={prints} 
             onAddToCart={addToCart}
-            showAddButton={true}
           />
 
           {/* Cart Section */}
