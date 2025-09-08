@@ -306,7 +306,7 @@ export default function Admin() {
   return (
     <ProtectedRoute requireAdmin={true}>
       <div className="min-h-screen">
-        <Header cartCount={0} />
+        <Header />
         
         <main className="container mx-auto px-4 py-8">
           <div className="mb-8">
