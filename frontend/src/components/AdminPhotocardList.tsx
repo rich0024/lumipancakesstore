@@ -40,6 +40,11 @@ export default function AdminPhotocardList({ photocards, onEdit, onDelete, onBul
       let aValue = a[sortField];
       let bValue = b[sortField];
 
+      // Handle undefined values
+      if (aValue === undefined && bValue === undefined) return 0;
+      if (aValue === undefined) return sortOrder === 'asc' ? 1 : -1;
+      if (bValue === undefined) return sortOrder === 'asc' ? -1 : 1;
+
       // Handle different data types
       if (typeof aValue === 'string' && typeof bValue === 'string') {
         aValue = aValue.toLowerCase();
