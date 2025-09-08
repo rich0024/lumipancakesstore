@@ -12,6 +12,10 @@ const database = require('./src/database');
 const printsDatabase = require('./src/database-prints');
 const passport = require('./src/config/passport');
 const { authenticateToken, requireAdmin } = require('./src/middleware/auth');
+const cloudinary = require('./src/config/cloudinary');
+const Photocard = require('./src/models/Photocard');
+const Print = require('./src/models/Print');
+const runMigrations = require('./src/migrations/migrate');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -135,19 +139,24 @@ app.get('/health', (req, res) => {
   });
 });
 
-// Upload image endpoint
-app.post('/api/upload', upload.single('image'), (req, res) => {
+// Upload image endpoint with Cloudinary
+app.post('/api/upload', upload.single('image'), async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: 'No image file provided' });
     }
     
-    // Use different paths for production vs development
-    const imageUrl = process.env.NODE_ENV === 'production' 
-      ? `/uploads/${req.file.filename}`
-      : `/images/uploads/${req.file.filename}`;
+    // Upload to Cloudinary
+    const result = await cloudinary.uploader.upload(req.file.path, {
+      folder: 'lumipancakesstore',
+      use_filename: true,
+      unique_filename: true,
+    });
     
-    res.json({ url: imageUrl });
+    // Delete local file after upload
+    fs.unlinkSync(req.file.path);
+    
+    res.json({ url: result.secure_url });
   } catch (error) {
     console.error('Error uploading image:', error);
     res.status(500).json({ error: 'Failed to upload image' });
@@ -155,10 +164,10 @@ app.post('/api/upload', upload.single('image'), (req, res) => {
 });
 
 // Get all photocards with optional sorting and filtering
-app.get('/api/menu', (req, res) => {
+app.get('/api/menu', async (req, res) => {
   try {
     const { sortBy, sortOrder, group, rarity, age } = req.query;
-    const photocards = database.getPhotocards({
+    const photocards = await Photocard.getAll({
       sortBy,
       sortOrder,
       group,
@@ -166,10 +175,7 @@ app.get('/api/menu', (req, res) => {
       age
     });
     
-    // Filter out items with 0 quantity
-    const availablePhotocards = photocards.filter(card => card.quantity > 0);
-    
-    res.json(availablePhotocards);
+    res.json(photocards);
   } catch (error) {
     console.error('Error fetching menu:', error);
     res.status(500).json({ error: 'Failed to fetch menu' });
@@ -203,21 +209,10 @@ app.use('/api/orders', orderRoutes);
 
 // Prints API routes
 // Get all prints with optional sorting and filtering
-app.get('/api/prints', (req, res) => {
+app.get('/api/prints', async (req, res) => {
   try {
-    const { sortBy, sortOrder, search, minPrice, maxPrice } = req.query;
-    const prints = printsDatabase.getPrints({
-      sortBy,
-      sortOrder,
-      search,
-      minPrice: minPrice ? parseFloat(minPrice) : undefined,
-      maxPrice: maxPrice ? parseFloat(maxPrice) : undefined
-    });
-    
-    // Filter out items with 0 quantity
-    const availablePrints = prints.filter(print => print.quantity > 0);
-    
-    res.json(availablePrints);
+    const prints = await Print.getAll();
+    res.json(prints);
   } catch (error) {
     console.error('Error fetching prints:', error);
     res.status(500).json({ error: 'Failed to fetch prints' });

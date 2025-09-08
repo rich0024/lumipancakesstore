@@ -8,7 +8,8 @@
     "dev": "nodemon server.js",
     "test": "jest",
     "build": "echo 'No build step required for Node.js'",
-    "deploy": "echo 'Deploy to Railway'"
+    "deploy": "echo 'Deploy to Railway'",
+    "migrate": "node src/migrations/migrate.js"
   },
   "keywords": [
     "api",
@@ -20,6 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.5.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
@@ -29,7 +31,8 @@
     "morgan": "^1.10.0",
     "multer": "^2.0.2",
     "passport": "^0.7.0",
-    "passport-google-oauth20": "^2.0.0"
+    "passport-google-oauth20": "^2.0.0",
+    "pg": "^8.11.3"
   },
   "devDependencies": {
     "jest": "^29.7.0",
