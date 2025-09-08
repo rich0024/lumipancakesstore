@@ -34,7 +34,7 @@ export default function PrintsPage() {
       if (minPrice) params.append('minPrice', minPrice);
       if (maxPrice) params.append('maxPrice', maxPrice);
 
-      const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/prints?${params}`);
+      const response = await fetch(`${process.env.API_URL || '${process.env.API_URL || 'http://localhost:3001'}'}/api/prints?${params}`);
       if (response.ok) {
         const data = await response.json();
         setPrints(data);
@@ -56,7 +56,7 @@ export default function PrintsPage() {
 
     try {
       const token = localStorage.getItem('authToken');
-      const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/orders', {
+      const response = await fetch('${process.env.API_URL || '${process.env.API_URL || 'http://localhost:3001'}'}/api/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
