@@ -67,7 +67,7 @@ export default function Collection() {
       const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/orders`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': 'Bearer ' + token,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({

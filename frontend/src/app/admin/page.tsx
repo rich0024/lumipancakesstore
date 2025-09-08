@@ -31,7 +31,7 @@ export default function Admin() {
       const token = localStorage.getItem('authToken');
       const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/admin/photocards`, {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': 'Bearer ' + token,
           'Content-Type': 'application/json',
         },
       });
@@ -50,7 +50,7 @@ export default function Admin() {
       const token = localStorage.getItem('authToken');
       const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/admin/prints`, {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': 'Bearer ' + token,
           'Content-Type': 'application/json',
         },
       });
@@ -72,7 +72,7 @@ export default function Admin() {
       const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/admin/photocards`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': 'Bearer ' + token,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(cardData),
@@ -98,7 +98,7 @@ export default function Admin() {
       const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/admin/photocards/${id}`, {
         method: 'PUT',
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': 'Bearer ' + token,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(cardData),
@@ -130,7 +130,7 @@ export default function Admin() {
       const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/admin/photocards/${id}`, {
         method: 'DELETE',
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': 'Bearer ' + token,
         },
       });
 
@@ -163,7 +163,7 @@ export default function Admin() {
       const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/admin/prints`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': 'Bearer ' + token,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(printData),
@@ -189,7 +189,7 @@ export default function Admin() {
       const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/admin/prints/${id}`, {
         method: 'PUT',
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': 'Bearer ' + token,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(printData),
@@ -221,7 +221,7 @@ export default function Admin() {
       const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/admin/prints/${id}`, {
         method: 'DELETE',
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': 'Bearer ' + token,
         },
       });
 
@@ -249,7 +249,7 @@ export default function Admin() {
         fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/admin/photocards/${id}`, {
           method: 'DELETE',
           headers: {
-            'Authorization': `Bearer ${token}`,
+            'Authorization': 'Bearer ' + token,
           },
         })
       );
@@ -274,7 +274,7 @@ export default function Admin() {
         fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/admin/prints/${id}`, {
           method: 'DELETE',
           headers: {
-            'Authorization': `Bearer ${token}`,
+            'Authorization': 'Bearer ' + token,
           },
         })
       );
