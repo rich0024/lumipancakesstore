@@ -56,7 +56,7 @@ export default function PrintsPage() {
 
     try {
       const token = localStorage.getItem('authToken');
-      const response = await fetch('${process.env.API_URL || 'http://localhost:3001'}/api/orders', {
+      const response = await fetch(`${process.env.API_URL || 'http://localhost:3001'}/api/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
