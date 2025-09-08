@@ -112,6 +112,16 @@ app.get('/', (req, res) => {
   res.json({ 
     message: 'Lumi❤️Pancakes Photocard Store API',
     status: 'running',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV,
+    version: '1.0.0'
+  });
+});
+
+// Simple health check for Railway
+app.get('/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'OK',
     timestamp: new Date().toISOString()
   });
 });
@@ -395,8 +405,10 @@ app.use('*', (req, res) => {
   res.status(404).json({ error: 'Route not found' });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`📸 Lumi❤️Pancakes Photocard Store API server is running on port ${PORT}`);
   console.log(`🌐 API URL: http://localhost:${PORT}`);
   console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
+  console.log(`🔧 Environment: ${process.env.NODE_ENV}`);
+  console.log(`🌍 Listening on all interfaces (0.0.0.0:${PORT})`);
 });
