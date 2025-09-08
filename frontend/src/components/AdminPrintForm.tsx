@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import { Print } from '@/types/menu';
 
+// AdminPrintForm component for creating and editing prints
+
 interface AdminPrintFormProps {
   print?: Print | null;
   onSubmit: (data: Partial<Print>) => void;
