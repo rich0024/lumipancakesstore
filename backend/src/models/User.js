@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
-const database = require('./database');
-const printsDatabase = require('./database-prints');
+const database = require('../database');
+const printsDatabase = require('../database-prints');
 
 const USERS_FILE = path.join(__dirname, '../../data/users.json');
 const ORDERS_FILE = path.join(__dirname, '../../data/orders.json');
