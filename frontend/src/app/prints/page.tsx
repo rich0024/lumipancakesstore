@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Print } from '@/types/menu';
 
-// Prints page component for displaying and managing prints
+// Prints page component for displaying and managing prints - updated with Bearer token
 import PrintGrid from '@/components/PrintGrid';
 import Cart from '@/components/Cart';
 import Header from '@/components/Header';
