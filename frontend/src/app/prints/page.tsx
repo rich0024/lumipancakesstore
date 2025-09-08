@@ -213,11 +213,8 @@ export default function PrintsPage() {
           {cart.length > 0 && (
             <div className="mt-8">
               <Cart 
-                cart={cart}
-                onRemoveFromCart={removeFromCart}
-                onClearCart={clearCart}
                 onPlaceOrder={placeOrder}
-                totalPrice={getTotalPrice()}
+                isAuthenticated={isAuthenticated}
               />
             </div>
           )}
