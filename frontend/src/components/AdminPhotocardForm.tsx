@@ -79,6 +79,7 @@ export default function AdminPhotocardForm({ card, onSubmit, onCancel }: AdminPh
     const submitData = {
       ...formData,
       price: parseFloat(formData.price),
+      quantity: parseInt(formData.quantity),
       image: imageUrl
     };
     
