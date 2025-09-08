@@ -19,7 +19,11 @@ const PORT = process.env.PORT || 3001;
 // Configure multer for file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const uploadDir = path.join(__dirname, '../frontend/public/images/uploads');
+    // Use a local uploads directory in production
+    const uploadDir = process.env.NODE_ENV === 'production' 
+      ? path.join(__dirname, 'uploads')
+      : path.join(__dirname, '../frontend/public/images/uploads');
+    
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }
@@ -96,6 +100,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Serve uploaded files in production
+if (process.env.NODE_ENV === 'production') {
+  app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+}
+
 // Routes
 app.get('/api/health', (req, res) => {
   res.json({ 
@@ -133,7 +142,11 @@ app.post('/api/upload', upload.single('image'), (req, res) => {
       return res.status(400).json({ error: 'No image file provided' });
     }
     
-    const imageUrl = `/images/uploads/${req.file.filename}`;
+    // Use different paths for production vs development
+    const imageUrl = process.env.NODE_ENV === 'production' 
+      ? `/uploads/${req.file.filename}`
+      : `/images/uploads/${req.file.filename}`;
+    
     res.json({ url: imageUrl });
   } catch (error) {
     console.error('Error uploading image:', error);
