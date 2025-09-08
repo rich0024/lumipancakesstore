@@ -96,7 +96,7 @@ export default function Home() {
               </div>
               <div className="flex justify-center">
                 <Image
-                  src="https://res.cloudinary.com/dx4biopst/image/upload/v1/lumipancakesstore/icon"
+                  src="https://res.cloudinary.com/dx4biopst/image/upload/v1757303764/Lumi_Pancakes_-_Etsy_Shop_Icon_cxso9y.png"
                   alt="Lumi Pancakes Icon"
                   width={200}
                   height={200}

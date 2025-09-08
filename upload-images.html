@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Images to Cloudinary</title>
+    <script src="https://unpkg.com/cloudinary-core@2.12.0/cloudinary-core-shrinkwrap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #e91e63;
+            text-align: center;
+        }
+        .upload-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px dashed #e91e63;
+            border-radius: 10px;
+            text-align: center;
+        }
+        input[type="file"] {
+            margin: 10px 0;
+        }
+        button {
+            background-color: #e91e63;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #c2185b;
+        }
+        .result {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f0f8ff;
+            border-radius: 5px;
+            border-left: 4px solid #2196f3;
+        }
+        .url {
+            word-break: break-all;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        .instructions {
+            background-color: #fff3e0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ Upload Images to Cloudinary</h1>
+        
+        <div class="instructions">
+            <h3>📋 Instructions:</h3>
+            <ol>
+                <li>Upload your banner image (Lumi Pancakes - Etsy Shop Banner.png)</li>
+                <li>Upload your shop icon (Lumi Pancakes - Etsy Shop Icon.png)</li>
+                <li>Copy the generated URLs</li>
+                <li>Update your app with the new URLs</li>
+            </ol>
+        </div>
+
+        <div class="upload-section">
+            <h3>📸 Upload Banner Image</h3>
+            <input type="file" id="bannerFile" accept="image/*">
+            <br>
+            <button onclick="uploadBanner()">Upload Banner</button>
+            <div id="bannerResult" class="result" style="display: none;">
+                <strong>Banner URL:</strong>
+                <div id="bannerUrl" class="url"></div>
+            </div>
+        </div>
+
+        <div class="upload-section">
+            <h3>🏪 Upload Shop Icon</h3>
+            <input type="file" id="iconFile" accept="image/*">
+            <br>
+            <button onclick="uploadIcon()">Upload Icon</button>
+            <div id="iconResult" class="result" style="display: none;">
+                <strong>Icon URL:</strong>
+                <div id="iconUrl" class="url"></div>
+            </div>
+        </div>
+
+        <div class="upload-section">
+            <h3>🖼️ Upload Placeholder Image</h3>
+            <input type="file" id="placeholderFile" accept="image/*">
+            <br>
+            <button onclick="uploadPlaceholder()">Upload Placeholder</button>
+            <div id="placeholderResult" class="result" style="display: none;">
+                <strong>Placeholder URL:</strong>
+                <div id="placeholderUrl" class="url"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cloudinary configuration
+        const cloudName = 'dx4biopst';
+        const uploadPreset = 'ml_default'; // You may need to create this in Cloudinary
+
+        async function uploadToCloudinary(file, publicId) {
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('upload_preset', uploadPreset);
+            formData.append('public_id', publicId);
+            formData.append('folder', 'lumipancakesstore');
+
+            try {
+                const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Upload failed');
+                }
+
+                const data = await response.json();
+                return data.secure_url;
+            } catch (error) {
+                console.error('Upload error:', error);
+                throw error;
+            }
+        }
+
+        async function uploadBanner() {
+            const fileInput = document.getElementById('bannerFile');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('Please select a banner image file');
+                return;
+            }
+
+            try {
+                const url = await uploadToCloudinary(file, 'lumipancakesstore/banner');
+                document.getElementById('bannerUrl').textContent = url;
+                document.getElementById('bannerResult').style.display = 'block';
+            } catch (error) {
+                alert('Failed to upload banner: ' + error.message);
+            }
+        }
+
+        async function uploadIcon() {
+            const fileInput = document.getElementById('iconFile');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('Please select an icon image file');
+                return;
+            }
+
+            try {
+                const url = await uploadToCloudinary(file, 'lumipancakesstore/icon');
+                document.getElementById('iconUrl').textContent = url;
+                document.getElementById('iconResult').style.display = 'block';
+            } catch (error) {
+                alert('Failed to upload icon: ' + error.message);
+            }
+        }
+
+        async function uploadPlaceholder() {
+            const fileInput = document.getElementById('placeholderFile');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('Please select a placeholder image file');
+                return;
+            }
+
+            try {
+                const url = await uploadToCloudinary(file, 'lumipancakesstore/placeholder');
+                document.getElementById('placeholderUrl').textContent = url;
+                document.getElementById('placeholderResult').style.display = 'block';
+            } catch (error) {
+                alert('Failed to upload placeholder: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

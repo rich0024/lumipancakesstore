@@ -18,7 +18,7 @@ const initializeDatabase = () => {
         name: 'BTS Group Photo Print',
         description: 'High-quality print of BTS group photo from Proof era',
         price: 15.99,
-        image: '/images/placeholder.svg',
+        image: 'https://res.cloudinary.com/dx4biopst/image/upload/v1757303790/placeholder_abd4t3.svg',
         quantity: 10,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
@@ -28,7 +28,7 @@ const initializeDatabase = () => {
         name: 'NewJeans Concept Print',
         description: 'Artistic print featuring NewJeans members in Get Up concept',
         price: 18.99,
-        image: '/images/placeholder.svg',
+        image: 'https://res.cloudinary.com/dx4biopst/image/upload/v1757303790/placeholder_abd4t3.svg',
         quantity: 8,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
@@ -38,7 +38,7 @@ const initializeDatabase = () => {
         name: 'LE SSERAFIM Performance Print',
         description: 'Dynamic performance shot of LE SSERAFIM from UNFORGIVEN era',
         price: 16.99,
-        image: '/images/placeholder.svg',
+        image: 'https://res.cloudinary.com/dx4biopst/image/upload/v1757303790/placeholder_abd4t3.svg',
         quantity: 12,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
@@ -48,7 +48,7 @@ const initializeDatabase = () => {
         name: 'aespa MY WORLD Print',
         description: 'Stunning print from aespa\'s MY WORLD concept photos',
         price: 19.99,
-        image: '/images/placeholder.svg',
+        image: 'https://res.cloudinary.com/dx4biopst/image/upload/v1757303790/placeholder_abd4t3.svg',
         quantity: 6,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
@@ -58,7 +58,7 @@ const initializeDatabase = () => {
         name: 'TWICE Group Shot Print',
         description: 'Beautiful group photo of TWICE from READY TO BE album',
         price: 14.99,
-        image: '/images/placeholder.svg',
+        image: 'https://res.cloudinary.com/dx4biopst/image/upload/v1757303790/placeholder_abd4t3.svg',
         quantity: 15,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
