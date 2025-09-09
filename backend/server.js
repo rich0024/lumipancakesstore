@@ -169,6 +169,19 @@ app.post('/api/upload', upload.single('image'), async (req, res) => {
 app.get('/api/menu', async (req, res) => {
   try {
     const { sortBy, sortOrder, group, rarity, age } = req.query;
+    
+    // Use JSON database for local development if no DATABASE_URL is set
+    if (!process.env.DATABASE_URL) {
+      const photocards = database.getPhotocards({
+        sortBy,
+        sortOrder,
+        group,
+        rarity,
+        age
+      });
+      return res.json(photocards);
+    }
+    
     const photocards = await Photocard.getAll({
       sortBy,
       sortOrder,
@@ -213,6 +226,12 @@ app.use('/api/orders', orderRoutes);
 // Get all prints with optional sorting and filtering
 app.get('/api/prints', async (req, res) => {
   try {
+    // Use JSON database for local development if no DATABASE_URL is set
+    if (!process.env.DATABASE_URL) {
+      const prints = printsDatabase.getAllPrints();
+      return res.json(prints);
+    }
+    
     const prints = await Print.getAll();
     res.json(prints);
   } catch (error) {
