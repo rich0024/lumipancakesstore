@@ -3,6 +3,9 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { CartProvider } from '@/contexts/CartContext';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
+import GTMNoScript from '@/components/GTMNoScript';
+import PageTracker from '@/components/PageTracker';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,7 +22,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <GoogleAnalytics />
+      </head>
       <body className={inter.className}>
+        <GTMNoScript />
+        <PageTracker gtmId="GTM-PMWK3QFJ" />
         <AuthProvider>
           <CartProvider>
             <div className="min-h-screen bg-gradient-to-br from-orange-50 to-yellow-50">

@@ -1,7 +1,9 @@
 'use client';
 
+import React from 'react';
 import { Print } from '@/types/menu';
 import Image from 'next/image';
+import { trackAddToCart, trackViewItem } from '@/utils/analytics';
 
 interface PrintCardProps {
   item: Print;
@@ -10,6 +12,10 @@ interface PrintCardProps {
 }
 
 export default function PrintCard({ item, onAddToCart, showAddButton = true }: PrintCardProps) {
+  // Track item view when component mounts
+  React.useEffect(() => {
+    trackViewItem(item.id.toString(), item.name, item.price);
+  }, [item.id, item.name, item.price]);
   return (
     <div className="card p-8 group hover:shadow-lg transition-shadow duration-200">
       <div className="aspect-w-16 aspect-h-9 mb-4">
@@ -45,7 +51,10 @@ export default function PrintCard({ item, onAddToCart, showAddButton = true }: P
         
         {showAddButton && (
           <button
-            onClick={() => onAddToCart(item)}
+            onClick={() => {
+              onAddToCart(item);
+              trackAddToCart(item.id.toString(), item.name, item.price);
+            }}
             disabled={item.quantity === 0}
             className={`btn-primary flex items-center space-x-2 text-sm ${
               item.quantity === 0 ? 'opacity-50 cursor-not-allowed' : ''

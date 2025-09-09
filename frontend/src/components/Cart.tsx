@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Photocard, Print } from '@/types/menu';
 import { useCart } from '@/contexts/CartContext';
 import CheckoutModal from './CheckoutModal';
+import { trackRemoveFromCart, trackPurchase } from '@/utils/analytics';
 
 interface CartProps {
   onPlaceOrder?: () => void;
@@ -28,6 +29,11 @@ export default function Cart({
   };
 
   const handlePlaceOrder = () => {
+    // Track purchase event
+    const transactionId = `order_${Date.now()}`;
+    const totalValue = getTotalPrice();
+    trackPurchase(transactionId, totalValue);
+    
     if (onPlaceOrder) {
       onPlaceOrder();
     }
@@ -79,7 +85,10 @@ export default function Cart({
               </div>
               
               <button
-                onClick={() => removeFromCart(item.id)}
+                onClick={() => {
+                  removeFromCart(item.id);
+                  trackRemoveFromCart(item.id.toString(), item.name, item.price);
+                }}
                 className="text-red-500 hover:text-red-700 p-1"
                 title="Remove one item"
               >

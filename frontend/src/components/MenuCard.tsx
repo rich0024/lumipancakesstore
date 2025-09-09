@@ -1,7 +1,9 @@
 'use client';
 
+import React from 'react';
 import { Photocard } from '@/types/menu';
 import Image from 'next/image';
+import { trackAddToCart, trackViewItem } from '@/utils/analytics';
 
 interface MenuCardProps {
   item: Photocard;
@@ -10,6 +12,10 @@ interface MenuCardProps {
 }
 
 export default function MenuCard({ item, onAddToCart, showAddButton = true }: MenuCardProps) {
+  // Track item view when component mounts
+  React.useEffect(() => {
+    trackViewItem(item.id.toString(), item.name, item.price);
+  }, [item.id, item.name, item.price]);
   const getRarityColor = (rarity: string) => {
     switch (rarity) {
       case 'Album':
@@ -87,7 +93,10 @@ export default function MenuCard({ item, onAddToCart, showAddButton = true }: Me
         
         {showAddButton && (
           <button
-            onClick={() => onAddToCart(item)}
+            onClick={() => {
+              onAddToCart(item);
+              trackAddToCart(item.id.toString(), item.name, item.price);
+            }}
             disabled={item.quantity === 0}
             className={`btn-primary flex items-center space-x-2 text-sm ${
               item.quantity === 0 ? 'opacity-50 cursor-not-allowed' : ''
